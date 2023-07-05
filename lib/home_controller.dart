@@ -12,6 +12,11 @@ class HomeController extends InheritedNotifier<ValueNotifier<int>> {
   //lembrar de garantir que usando a ! pode ser null
   int get cont => notifier!.value;
 
+  //conreole de estado gerenciar o widget
+  static HomeController of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<HomeController>()!;
+  }
+
   increment() {
     notifier!.value++;
   }

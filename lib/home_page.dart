@@ -12,8 +12,12 @@ class HomePage extends StatelessWidget {
   //build context vai recuparar/acessar as infos do home_controller pai da home_page
   //context é da app inteira e eh oq tem construido ate o momento
   Widget build(BuildContext context) {
-    var controller =
-        context.dependOnInheritedWidgetOfExactType<HomeController>()!;
+    //é possivel pega outras infos usando o
+    var controller = HomeController.of(context);
+    final size = MediaQuery.of(context).size;
+    print(size);
+    final navigation = Navigator.of(context);
+    print(navigation);
     // ! avisando q pode ser null
 
     return Scaffold(
